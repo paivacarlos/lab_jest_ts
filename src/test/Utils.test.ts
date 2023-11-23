@@ -1,4 +1,4 @@
-import { toUpperCase } from "../app/Utils"
+import { getStringInfo, toUpperCase } from "../app/Utils"
 
 describe('Utils test suite', ()=> {
 
@@ -12,6 +12,23 @@ describe('Utils test suite', ()=> {
 
         //assert
         expect(actual).toBe(expected)
+    })
+
+    it('Should return info for valid string', ()=>{
+        const actual = getStringInfo('My-String')
+
+        expect(actual.lowerCase).toBe('my-string') //toBe for a primitives values
+        expect(actual.extraInfo).toEqual({}) // toEqual for a objects values
+        expect(actual.characters).toHaveLength(9) // length of the array
+        expect(actual.characters).toEqual(['M', 'y', '-', 'S', 't', 'r', 'i', 'n', 'g'])
+        expect(actual.characters).toContain('-')
+        expect(actual.characters).toEqual(//when you don't know what the order
+            expect.arrayContaining(['-', 'S', 't', 'r', 'i', 'n', 'g'])
+        )
+        expect(actual.extraInfo).not.toBe(undefined)
+        expect(actual.extraInfo).not.toBeUndefined()
+        expect(actual.extraInfo).toBeDefined()
+        expect(actual.extraInfo).toBeTruthy() // return true or false
     })
 
 })
