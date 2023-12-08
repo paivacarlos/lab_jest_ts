@@ -51,6 +51,32 @@ describe('Utils test suite', ()=> {
             expect(actual).toBe('ABC')
             console.log('Actual Test')
         })
+
+        it('Should throw error on invalid value', () => {
+            function expectError() {
+                const actual = sut.toUpperCase('')
+            }
+
+            expect(expectError).toThrow();
+            expect(expectError).toThrowError('Invalid argument!')
+        })
+
+        it('Should throw error on invalid value with arrow function', () => {
+           expect(()=> {
+            sut.toUpperCase('')
+           }).toThrowError('Invalid argument!')
+        })
+
+        it('Should throw error on invalid value with try catch block', (done) => {
+            try{
+                sut.toUpperCase('')    
+                done('GetStringInfo should throw error for valid value!')
+            }catch (error) {
+                expect(error).toBeInstanceOf(Error)
+                expect(error).toHaveProperty('message', 'Invalid argument!')
+                done()
+            }
+         })
     })
 
 })
