@@ -1,3 +1,10 @@
+
+export class StringUtils {
+    public toUpperCase(value: string) {
+        return toUpperCase(value)
+    }
+}
+
 export function toUpperCase(value: string) {
     return value.toLocaleUpperCase();
 }
