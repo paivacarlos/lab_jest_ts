@@ -31,7 +31,7 @@ describe('Utils test suite', ()=> {
         expect(actual.extraInfo).toBeTruthy() // return true or false
     })
 
-    describe.only('StringUtils tests', () => {
+    describe('StringUtils tests', () => {
 
         let sut: StringUtils
 
