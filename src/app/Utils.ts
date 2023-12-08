@@ -1,6 +1,10 @@
 
 export class StringUtils {
     public toUpperCase(value: string) {
+        if(!value){
+            throw new Error('Invalid argument!')
+        }
+
         return toUpperCase(value)
     }
 }
