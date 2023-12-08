@@ -1,4 +1,4 @@
-import { getStringInfo, toUpperCase } from "../app/Utils"
+import { StringUtils, getStringInfo, toUpperCase } from "../app/Utils"
 
 describe('Utils test suite', ()=> {
 
@@ -29,6 +29,28 @@ describe('Utils test suite', ()=> {
         expect(actual.extraInfo).not.toBeUndefined()
         expect(actual.extraInfo).toBeDefined()
         expect(actual.extraInfo).toBeTruthy() // return true or false
+    })
+
+    describe.only('StringUtils tests', () => {
+
+        let sut: StringUtils
+
+        // hooks example
+        beforeEach(() => {
+            sut = new StringUtils()
+        })
+
+        afterEach(() => {
+            //use to clearing mocks
+            console.log('Teardown')
+        })
+
+        it('Should return correct uppperCase', () => {
+            const actual = sut.toUpperCase('abc')
+
+            expect(actual).toBe('ABC')
+            console.log('Actual Test')
+        })
     })
 
 })
